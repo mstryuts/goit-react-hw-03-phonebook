@@ -20,9 +20,21 @@ export class App extends Component {
       contacts: [...contacts, newContact],
     }));
   };
-  s;
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
+  getVisibleContacts = () => {
+    const normalizedFilter = this.state.filter.toLocaleLowerCase();
+
+    return this.state.contacts.filter(contact =>
+      contact.name.toLocaleLowerCase().includes(normalizedFilter)
+    );
+  };
+
   render() {
-    const { contacts } = this.state;
+    const filteredContacts = this.getVisibleContacts();
+    const { contacts, filter } = this.state;
     console.log(this.state.contacts);
     return (
       <>
@@ -34,8 +46,8 @@ export class App extends Component {
             contacts={this.state.contacts}
           />
           <h2>Contacts</h2>
-          <Filter />
-          <ContactList contacts={contacts} />
+          <Filter value={filter} onChange={this.changeFilter} />
+          <ContactList contacts={filteredContacts} />
         </div>
       </>
     );
