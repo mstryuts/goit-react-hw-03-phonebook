@@ -35,7 +35,7 @@ class Form extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.loginInputId}>
+        <label htmlFor="">
           Name
           <input
             name="name"
@@ -47,7 +47,7 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor={this.loginInputId}>
+        <label htmlFor="">
           phone number
           <input
             name="number"
