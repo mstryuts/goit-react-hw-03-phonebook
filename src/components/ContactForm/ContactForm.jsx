@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import css from '../ContactForm/ContactForm.module.css';
 
 const INITIAL_STATE = {
   name: '',
@@ -24,6 +25,7 @@ class Form extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     const { onSubmit } = this.props;
+
     onSubmit({ id: nanoid(), name, number });
     this.reset();
   };
@@ -34,10 +36,11 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form onSubmit={this.handleSubmit} className={css.form}>
+        <label className={css.label}>
           Name
           <input
+            className={css.input}
             name="name"
             type="text"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -47,9 +50,10 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label>
+        <label className={css.label}>
           phone number
           <input
+            className={css.input}
             name="number"
             type="tel"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -59,7 +63,9 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button type="submit">send</button>
+        <button className={css.btn} type="submit">
+          send
+        </button>
       </form>
     );
   }
