@@ -64,11 +64,7 @@ export class App extends Component {
     return (
       <>
         <Section title={'PhoneBook'}>
-          <ContactForm
-            onSubmit={this.formSubmitHandler}
-            name={this.state.name}
-            contacts={this.state.contacts}
-          />
+          <ContactForm onSubmit={this.formSubmitHandler} />
         </Section>
         <Section title={'Contacts'}>
           <Filter value={filter} onChange={this.changeFilter} />

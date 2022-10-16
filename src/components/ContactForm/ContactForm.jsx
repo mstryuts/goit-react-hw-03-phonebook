@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import css from '../ContactForm/ContactForm.module.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const INITIAL_STATE = {
   name: '',
@@ -13,7 +13,7 @@ class Form extends Component {
     name: '',
     number: '',
   };
-  loginInputId = nanoid();
+  // loginInputId = nanoid();
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -73,6 +73,6 @@ class Form extends Component {
 }
 export default Form;
 
-//  onSubmit={this.formSubmitHandler}
-//             name={this.state.name}
-//             contacts={this.state.contacts}
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
