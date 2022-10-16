@@ -71,3 +71,7 @@ class Form extends Component {
   }
 }
 export default Form;
+
+//  onSubmit={this.formSubmitHandler}
+//             name={this.state.name}
+//             contacts={this.state.contacts}

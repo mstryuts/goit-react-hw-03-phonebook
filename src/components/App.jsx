@@ -54,15 +54,13 @@ export class App extends Component {
 
     const isExistContact = !contacts.find(contact => contact.name === name);
 
-    isExistContact && console.log('123');
-
     return !isExistContact;
   };
 
   render() {
     const filteredContacts = this.getVisibleContacts();
     const { filter } = this.state;
-    console.log(this.state.contacts);
+
     return (
       <>
         <Section title={'PhoneBook'}>
